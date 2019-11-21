@@ -8,10 +8,12 @@ const typeDefs = `
     type Query{
         hello(name:String):String!
         getUsers:[User]!
+        getUser(id:ID!):User!
     }
 
     type Mutation{
         createUser(name:String!,age:Int!):User
+        updateUser(name: String, age: Int):User
     }
 
     type User{
