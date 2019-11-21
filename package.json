@@ -1,0 +1,25 @@
+{
+  "name": "b36-backend",
+  "version": "1.0.0",
+  "description": "backend batch 36",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/malidevf/b36-backend.git"
+  },
+  "author": "malibb",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/malidevf/b36-backend/issues"
+  },
+  "homepage": "https://github.com/malidevf/b36-backend#readme",
+  "dependencies": {
+    "graphql-yoga": "^1.18.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.0"
+  }
+}
