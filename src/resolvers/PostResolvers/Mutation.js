@@ -1,4 +1,4 @@
-const { createPost } = require('../../services/PostService');
+const { createPost, updatePost, deletePost } = require('../../services/PostService');
 const { getOneAuthor } = require('../../services/AuthorService');
 
 const createNewPost = async ( _, { data }) => {
@@ -9,6 +9,20 @@ const createNewPost = async ( _, { data }) => {
     return post;
 };
 
+const updateOnePost = async (_, { id, data }) => {
+    const post = await updatePost(id, data);
+    if(!post) throw new Error('Post not exist');
+    return post;
+};
+
+const deleteOnePost = async (_, { id }) => {
+    const post = await deletePost(id);
+    if (!post) throw new Error('Post not exist');
+    return 'Post deleted';
+};
+
 module.exports = {
-    createNewPost
+    createNewPost,
+    updateOnePost,
+    deleteOnePost
 };
