@@ -21,4 +21,6 @@ const typeDefs = importSchema( __dirname + '/schema.graphql');
 
 const server = new GraphQLServer({typeDefs, resolvers});
 
-server.start(()=> console.log('works! = u ='));
+const port = process.env.PORT || 4000;
+
+server.start({port},()=> console.log(`works! = u = in port ${port}`));
