@@ -2,7 +2,10 @@ require('dotenv').config();
 
 const { GraphQLServer } = require('graphql-yoga');
 const { importSchema } = require('graphql-import');
+const { makeExecutableSchema } = require('graphql-tools');
 const resolvers = require('./src/resolvers');
+const AuthDirective = require('./src/resolvers/Directives/AuthDirectives');
+const verifyToken = require('./src/utils/verifyToken');
 
 const mongoose = require('mongoose');
 
@@ -19,8 +22,23 @@ mongo.on('error', (error) => console.log(error))
 
 const typeDefs = importSchema( __dirname + '/schema.graphql');
 
-const server = new GraphQLServer({typeDefs, resolvers});
-
+const schema = makeExecutableSchema({
+    typeDefs,
+    resolvers,
+    schemaDirectives: {
+        AuthDirective,
+    },
+});
+const server = new GraphQLServer({
+    schema,
+    context: async (contextParams) => ({
+        ...contextParams,
+        user: contextParams.request ? await verifyToken(contextParams.request) : {},
+    }),
+});
+// root, params, context, info
 const port = process.env.PORT || 4000;
 
 server.start({port},()=> console.log(`works! = u = in port ${port}`));
+
+module.exports = { schema };

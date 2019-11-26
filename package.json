@@ -18,8 +18,11 @@
   },
   "homepage": "https://github.com/malidevf/b36-backend#readme",
   "dependencies": {
+    "bcrypt": "^3.0.7",
     "dotenv": "^8.2.0",
+    "graphql-scalars": "^1.0.4",
     "graphql-yoga": "^1.18.3",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.7.12"
   },
   "devDependencies": {
