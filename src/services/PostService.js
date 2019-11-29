@@ -1,7 +1,7 @@
 const Posts = require('../models/Posts');
 
 const createPost = async (data) => {
-    const post = Posts.create(data);
+    const post = await Posts.create(data);
     const populatePost = await getOnePost(post._id);
     return populatePost;
 };
