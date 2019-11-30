@@ -9,7 +9,10 @@ const verifyToken = require('./src/utils/verifyToken');
 
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGO_URL, {
+const MONGO_URI = process.env.NODE_ENV === 'test' ?
+    process.env.MONGO_TEST_URL: process.env.MONGO_URL;
+
+mongoose.connect(MONGO_URI, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
