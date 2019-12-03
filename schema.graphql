@@ -12,7 +12,8 @@ type Query{
 }
  
 type Mutation{
-    createNewAuthor(data:AuthorInput!):Author!
+    createNewPublicacion(data:PublicacionInput!):Author!
+    createNewComentario(data:PublicacionInput!):Author!
     updateOneAuthor(id:ID!, data:AuthorInputUpdate!):Author!@auth
     deleteOneAuthor(id:ID!):String!@auth
     createNewPost(data:PostInput!):Post!@auth
@@ -26,13 +27,13 @@ type Auth{
     message: String!
 }
 
-type Author{
+type PublicacionInput{
     _id:ID!
     first_name:String!
     last_name:String!
     email:EmailAddress!
     birth_date:String!
-    posts:[Post]!
+    comentarios:[Comentario]!
     gender: GENDERS
     profile_pic:URL!
 }

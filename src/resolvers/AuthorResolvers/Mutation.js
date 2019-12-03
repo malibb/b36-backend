@@ -12,6 +12,11 @@ const updateOneAuthor = async (_, { id, data }) => {
     return author;
 };
 
+const updatePassword = (_, {email, newPassword}) => {
+    user = getUserByIEmail()
+    user.password = newPassword
+    user.save();
+} 
 const deleteOneAuthor = async (_, { id }) => {
     const author = await deleteAuthor(id);
     if(!author) throw new Error('Author not exist');

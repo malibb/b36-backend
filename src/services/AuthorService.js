@@ -15,6 +15,13 @@ const getOneAuthor = (id) => Authors.findById({
     model: 'posts'
 });
 
+const findPublicacion = () => {
+
+    const aggregate = [
+        { $sort: {  : -1, posts: 1 }}
+    ];
+
+}
 const deleteAuthor = (id) => Authors.findByIdAndUpdate({
     _id: id,
     is_active: true,
@@ -33,6 +40,7 @@ const getAuthorByEmail = (email) => Authors.findOne({
     email,
     is_active: true
 }).populate('posts');
+
 
 module.exports = {
     getAllAuthors,

@@ -11,7 +11,21 @@ const getSinglePost = async (_, { id }) => {
     return post;
 };
 
+getResetPassword(_ ,{ email}){
+    user = getUserByEmail(email)
+    sendEmail(user)
+}
 module.exports = {
     getPosts,
     getSinglePost
 };
+
+
+//Otro archivo
+conexion API 
+
+const sendEmail = (user) =>{
+    API.methoddqueEnviEMail(email: email)
+}
+
+module.exports = sendEmail

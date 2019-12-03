@@ -27,7 +27,11 @@ const AuthorSchema = new Schema({
         type: String,
         enum:['M','F','O'],
     },
-    posts:{
+    noComentarios: {
+        type: Number,
+        default: 0,
+    },
+    comentarios:{
         type: [Schema.Types.ObjectId],
         ref:'posts'
     },
