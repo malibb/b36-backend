@@ -19,6 +19,9 @@ type Mutation{
     createNewPost(data:PostInput!):Post!@auth
     updateOnePost(id:ID!, data:PostInputUpdate!):Post!@auth
     deleteOnePost(id:ID!):String!@auth
+    createNewComment(data:CommentInput!):Comment!@auth
+    updateOneComment(id:ID!, data:CommentInputUpdate!):Comment!@auth
+    deleteOneComment(id:ID!):String!@auth
     login(email:EmailAddress!, password: String!): Auth!
 }
 
@@ -87,4 +90,21 @@ enum GENDERS{
     M
     F
     O
+}
+
+
+type Comment{
+    _id:ID!
+    content: String!
+    post:Post!
+    author:Author!
+}
+
+type CommentInput{
+    content: String!
+    post:ID!
+}
+
+type CommentInputUpdate{
+    content: String!
 }

@@ -10,20 +10,7 @@ const data_ = {
     idPublicacion,
 }
 
-
-const createNewComentario = async ( _, { data }, { userAuth }) => {
-    data.comentario = {
-        ...data.comentario,
-        author: userAuth._id
-    }
-    const publicacion = await getPublicacionById(idPublicacion);
-    const comentario = await createComentario(data.comentario, user._id);
-    publicacion.comentarios.push(comentario);
-    publicacion.noComentarios += 1;
-    publicacion.save();
-    return cometario;
-};
-
+//createPost
 const createPublicacion = async (_, {data},{userAuth})=> {
     const publicacion = await createNewPublicacion(userAuth._id, data);
 }
