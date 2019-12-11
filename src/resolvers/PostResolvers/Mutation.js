@@ -14,6 +14,14 @@ const data_ = {
 const createPublicacion = async (_, {data},{userAuth})=> {
     const publicacion = await createNewPublicacion(userAuth._id, data);
 }
+// id de el post       root, params, {context}, info 
+const likedPost = async (_ ,id, { userAuth }) => {
+    const post = getPostById(id);
+    post.liked_by.push(userAuth._id);// quien le dio like
+    post.likes += 1; // post.likes = post.likes + 1;
+    post.save();
+    return post;
+};
 
 const updateOnePost = async (_, { id, data }, { user }) => {
     data.author = user._id;

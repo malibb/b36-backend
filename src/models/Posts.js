@@ -22,9 +22,12 @@ const PostSchema = new Schema({
     cover:{
         type: String,
     },
+    // Cantidad de likes
     likes:{
         type: Number,
+        default:0,
     },
+    // Quienes dieron esos likes
     liked_by:{
         type: [Schema.Types.ObjectId],
         ref: 'author'

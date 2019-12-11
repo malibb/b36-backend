@@ -18,6 +18,7 @@ type Mutation{
     deleteOneAuthor(id:ID!):String!@auth
     createNewPost(data:PostInput!):Post!@auth
     updateOnePost(id:ID!, data:PostInputUpdate!):Post!@auth
+    likedPost(id:ID!):Post!@auth
     deleteOnePost(id:ID!):String!@auth
     createNewComment(data:CommentInput!):Comment!@auth
     updateOneComment(id:ID!, data:CommentInputUpdate!):Comment!@auth
